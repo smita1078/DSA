@@ -1,4 +1,4 @@
-//Brute Force
+//Brute Force TC:O(n) SC:O(n)
 import java.util.*;
 
 public class Solution {
@@ -43,7 +43,7 @@ public class Solution {
     }
 }
 
-// Optimal Approach
+// Optimal Approach TC:O(n) SC:O(n)
 import java.util.*;
 
 class Solution {
