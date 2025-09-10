@@ -1,5 +1,5 @@
 import java.util.*;
-
+// Brute force
 public class Solution{
   String maxEvenLength(String str){
     int n = str.length();
@@ -16,6 +16,26 @@ public class Solution{
      return result.isEmpty() ? "-1" : result;
     }
 }
+
+  //Optimal
+
+String maxEvenLength(String str){
+  String result="";
+  int maxi=0;
+  int i=0;
+  while(i<str.length()){
+    while(i<str.length() && str.charAt(i)==' ')i++;
+    int start =i;
+    while(i<str.length() && str.charAt(i)!=' ')i++;
+    int end = i;
+    int len = end-start;
+    if(len>0 && len%2==0 &&len>maxi){
+      maxi=len;
+      result=str.substring(start,end);
+    }
+    return result;
+  }
+    
 
  public static void main(String[] args) {
         Solution sol = new Solution();
