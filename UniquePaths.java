@@ -1,0 +1,32 @@
+class Solution {
+    public int uniquePaths(int m, int n) {
+        int k = Math.min(m-1,n-1);
+        int tmoves = m+n-2;
+        long ans = 1;
+        for(int i=1;i<=k;i++){
+            ans=ans*(tmoves-i+1)/i;
+        }
+        return (int)ans;
+    }
+}
+public int uniquePaths(int m, int n) {
+        int[][] dp = new int[m][n];
+
+        // Fill first row and first column with 1s
+        for (int i = 0; i < m; i++) dp[i][0] = 1;
+        for (int j = 0; j < n; j++) dp[0][j] = 1;
+
+        // Fill the rest of the grid
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            }
+        }
+
+        return dp[m - 1][n - 1];
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        System.out.println("Unique Paths (3x7): " + sol.uniquePaths(3, 7)); // Output: 28
+    }
