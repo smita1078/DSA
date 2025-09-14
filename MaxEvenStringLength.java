@@ -9,7 +9,7 @@ public class Solution{
 
     for(int i=0;i<words.length;i++){
       int len = words[i].length();
-      if(len%2==0){
+      if(len%2==0 && len>maxi){
         maxi=Math.max(len,maxi);
         result=words[i];
       }
